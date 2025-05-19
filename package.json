@@ -1,0 +1,14 @@
+{
+ "name": "wp-headless",
+ "version": "1.0.0",
+ "description": "",
+ "main": "index.js",
+ "scripts": {
+  "start": "docker-compose start",
+  "stop": "docker-compose stop"
+ },
+ "keywords": [],
+ "author": "",
+ "license": "ISC",
+ "type": "commonjs"
+}
