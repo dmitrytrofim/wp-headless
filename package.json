@@ -5,7 +5,8 @@
  "main": "index.js",
  "scripts": {
   "start": "docker-compose start",
-  "stop": "docker-compose stop"
+  "stop": "docker-compose stop",
+  "restart": "docker-compose restart"
  },
  "keywords": [],
  "author": "",
