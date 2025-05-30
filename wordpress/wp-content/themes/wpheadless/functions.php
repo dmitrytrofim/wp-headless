@@ -112,7 +112,7 @@ add_action('wp_enqueue_scripts', 'wpheadless_scripts');
 add_action('carbon_fields_register_fields', 'crb_register_custom_fields');
 function crb_register_custom_fields()
 {
- // require_once get_template_directory() . '/inc/carbon/general.php';
+ require_once get_template_directory() . '/inc/carbon/general.php';
  // require_once get_template_directory() . '/inc/carbon';
 }
 add_action('after_setup_theme', 'crb_load');

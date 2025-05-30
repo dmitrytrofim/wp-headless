@@ -58,35 +58,35 @@ function svg_upload_allow($mimes)
 // });
 
 // Отключить Guttenberg и редактор по названиям страниц
-//if (is_admin()) {
-// $pagesNames = ['vakansii'];
-// $disPages = [get_option('page_on_front')];
-// foreach ($pagesNames as $itemPage) {
-//  $page = get_page_by_path($itemPage);
-//  $id = $page->ID;
-//  $disPages[] = $id;
-// }
-// add_filter('use_block_editor_for_post', 'disable_block_editor_for_page_ids', 10, 2);
-// function disable_block_editor_for_page_ids($use_block_editor, $post)
-// {
-//  global $disPages;
-//  if (in_array($post->ID, [...$disPages])) {
-//   return false;
-//  }
-//  if ($post->post_type === 'post') {
-//   return false;
-//  }
-//  return $use_block_editor;
-// }
-// add_action('admin_head', 'disable_wp_editor');
-// function disable_wp_editor()
-// {
-//  global $disPages;
-//  if (in_array(get_the_ID(), [...$disPages])) {
-//   remove_post_type_support('page', 'editor');
-//  }
-// }
-//}
+if (is_admin()) {
+ // $pagesNames = ['vakansii'];
+ // $disPages = [get_option('page_on_front')];
+ // foreach ($pagesNames as $itemPage) {
+ //  $page = get_page_by_path($itemPage);
+ //  $id = $page->ID;
+ //  $disPages[] = $id;
+ // }
+ add_filter('use_block_editor_for_post', 'disable_block_editor_for_page_ids', 10, 2);
+ function disable_block_editor_for_page_ids($use_block_editor, $post)
+ {
+  global $disPages;
+  // if (in_array($post->ID, [...$disPages])) {
+  //  return false;
+  // }
+  if ($post->post_type === 'post') {
+   return false;
+  }
+  return $use_block_editor;
+ }
+ add_action('admin_head', 'disable_wp_editor');
+ function disable_wp_editor()
+ {
+  remove_post_type_support('post', 'editor');
+  // if (in_array(get_the_ID(), [...$disPages])) {
+  //  remove_post_type_support('page', 'editor');
+  // }
+ }
+}
 
 // Отключить Gutenberg на определённых шаблонах страниц
 // add_filter('use_block_editor_for_post_type', 'truemisha_no_gutenberg_for_page_template', 25);
